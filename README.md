@@ -1,20 +1,29 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# SPM EssayMark AI
 
-# Run and deploy your AI Studio app
+Full-stack Next.js application for Malaysian English teachers to assess SPM English Paper 2 writing. Results are labelled **AI-assisted provisional mark – teacher verification required** and must not be treated as official SPM marks.
 
-This contains everything you need to run your app locally.
+## Features
+- Teacher dashboard for Part 1 Email, Part 2 Guided Writing, and Part 3 Story/Review/Report.
+- Editable content points, accepted interpretations, no-award conditions and compulsory sentence checks.
+- Two-stage marking: task fulfilment evidence first, then holistic Content, Communicative Achievement, Organisation and Language scores.
+- OpenAI Responses API server-side only via `OPENAI_API_KEY`.
+- SQLite + Prisma models for teachers, templates, content parameters, students, submissions, AI marking, teacher moderation and benchmark essays.
+- TXT, text-based PDF and DOCX upload extraction for teacher verification.
+- Calibration benchmark page, moderation controls, print/PDF placeholder and CSV export.
 
-View your app in AI Studio: https://ai.studio/apps/a3fdefd3-d5e5-4762-b5b5-c28affb89f64
+## Setup
+1. `npm install`
+2. `cp .env.example .env.local`
+3. Set `OPENAI_API_KEY` in `.env.local` and `DATABASE_URL="file:./dev.db"`.
+4. `npx prisma generate`
+5. `npx prisma db push`
+6. `npm run seed`
+7. `npm run dev`
 
-## Run Locally
+## Testing
+- `npm run lint`
+- `npm test`
+- `npm run build`
 
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Notes
+If `OPENAI_API_KEY` is absent, the app uses a conservative heuristic fallback and forces teacher review. Handwriting recognition is experimental and must never be marked before teacher transcription verification.

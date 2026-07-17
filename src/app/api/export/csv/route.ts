@@ -1,0 +1,2 @@
+import { prisma } from '@/lib/prisma';
+export async function GET(){const rows=await prisma.submission.findMany({include:{student:true,aiMarking:true,moderation:true}}); const csv=['Student,Class,Part,Genre,AI Total,Final Total'].concat(rows.map(r=>[r.student.name,r.student.className,r.part,r.genre,r.aiMarking?.total,r.moderation?.total??''].map(v=>`"${String(v??'').replaceAll('"','""')}"`).join(','))).join('\n'); return new Response(csv,{headers:{'content-type':'text/csv','content-disposition':'attachment; filename="class-results.csv"'}})}

@@ -1,0 +1,3 @@
+import { NextResponse } from 'next/server';
+import { prisma } from '@/lib/prisma';
+export async function POST(req:Request){const b=await req.json(); const total=[b.contentScore,b.caScore,b.organisationScore,b.languageScore].filter((n:any)=>Number.isInteger(n)).reduce((a:number,n:number)=>a+n,0); const row=await prisma.teacherModeration.upsert({where:{submissionId:b.submissionId},create:{submissionId:b.submissionId,contentScore:b.contentScore,caScore:b.caScore,organisationScore:b.organisationScore,languageScore:b.languageScore,total,note:b.note,approved:!!b.approved},update:{contentScore:b.contentScore,caScore:b.caScore,organisationScore:b.organisationScore,languageScore:b.languageScore,total,note:b.note,approved:!!b.approved}}); return NextResponse.json(row)}
