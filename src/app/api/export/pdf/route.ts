@@ -1,0 +1,1 @@
+export async function GET(){return new Response('SPM EssayMark AI report export placeholder. Use browser Print > Save as PDF for v1.',{headers:{'content-type':'application/pdf','content-disposition':'attachment; filename="essaymark-report.pdf"'}})}

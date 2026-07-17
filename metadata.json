@@ -1,8 +1,0 @@
-{
-  "name": "Speak Smart",
-  "description": "An AI-powered English speaking test practice app with a talking avatar and real-time feedback.",
-  "requestFramePermissions": [
-    "microphone"
-  ],
-  "majorCapabilities": []
-}

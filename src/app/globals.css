@@ -1,0 +1,2 @@
+@import "tailwindcss";
+:root{--navy:#0b1f3a;--teal:#0f9f9a;--gold:#d8a31a} body{background:#f7fafc;color:#102033}.card{border-radius:1rem;background:white;box-shadow:0 10px 30px #0b1f3a14;border:1px solid #e5edf5}.btn{border-radius:.75rem;padding:.7rem 1rem;font-weight:700}.btn-primary{background:#0b1f3a;color:white}.btn-teal{background:#0f9f9a;color:white}.input{width:100%;border:1px solid #cbd5e1;border-radius:.75rem;padding:.7rem;background:white} label{font-weight:700;color:#0b1f3a;font-size:.9rem}
